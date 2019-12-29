@@ -12,7 +12,7 @@ import 'package:hiking_album/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(AnimationSamples());
+    await tester.pumpWidget(HikingAlbum());
 
     // Verify that a least one of our demos is showing up in the list
     expect(find.text('AnimatedContainer'), findsOneWidget);
