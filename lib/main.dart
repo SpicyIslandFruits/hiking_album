@@ -1,71 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:hiking_album/src/home.dart';
+import 'package:hiking_album/src/pages.dart';
 import 'src/focus_image.dart';
 
-void main() => runApp(AnimationSamples());
+void main() => runApp(HikingAlbum());
 
-class Demo {
+class PageContext {
   final String name;
   final String route;
   final WidgetBuilder builder;
 
-  const Demo({this.name, this.route, this.builder});
+  const PageContext({this.name, this.route, this.builder});
 }
 
-final miscDemos = [
-  Demo(
+final pageContexts = [
+  PageContext(
       name: 'Focus Image',
-      route: FocusImageDemo.routeName,
-      builder: (context) => FocusImageDemo()),
+      route: ListImage.routeName,
+      builder: (context) => ListImage()),
+  PageContext(
+      name: 'Page List',
+      route: PageListPage.routeName,
+      builder: (context) => PageListPage()),
 ];
 
-final miscDemoRoutes =
-    Map.fromEntries(miscDemos.map((d) => MapEntry(d.route, d.builder)));
+final tempRoutes =
+    Map.fromEntries(pageContexts.map((d) => MapEntry(d.route, d.builder)));
 
 final allRoutes = <String, WidgetBuilder>{
-  ...miscDemoRoutes,
+  ...tempRoutes,
 };
 
-class AnimationSamples extends StatelessWidget {
+class HikingAlbum extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animation Samples',
+      title: 'Hiking Album',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
       routes: allRoutes,
       home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.title;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Animation Samples'),
-      ),
-      body: ListView(
-        children: [
-          ListTile(title: Text('Misc', style: headerStyle)),
-          ...miscDemos.map((d) => DemoTile(d)),
-        ],
-      ),
-    );
-  }
-}
-
-class DemoTile extends StatelessWidget {
-  final Demo demo;
-
-  DemoTile(this.demo);
-
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(demo.name),
-      onTap: () {
-        Navigator.pushNamed(context, demo.route);
-      },
     );
   }
 }
