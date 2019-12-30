@@ -13,23 +13,23 @@ class PageListPage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(title: Text('Misc', style: headerStyle)),
-          ...pageContexts.map((d) => DemoTile(d)),
+          ...pageContexts.map((d) => PageTile(d)),
         ],
       ),
     );
   }
 }
 
-class DemoTile extends StatelessWidget {
-  final PageContext demo;
+class PageTile extends StatelessWidget {
+  final PageContext pageContext;
 
-  DemoTile(this.demo);
+  PageTile(this.pageContext);
 
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(demo.name),
+      title: Text(pageContext.name),
       onTap: () {
-        Navigator.pushNamed(context, demo.route);
+        Navigator.pushNamed(context, pageContext.route);
       },
     );
   }

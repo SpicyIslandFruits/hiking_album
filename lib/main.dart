@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hiking_album/src/home.dart';
+import 'package:hiking_album/src/pages/edit_page.dart';
+import 'package:hiking_album/src/pages/home_page.dart';
 import 'package:hiking_album/src/pages.dart';
-import 'src/focus_image.dart';
+import 'package:hiking_album/src/pages/mounts_set_page.dart';
+import 'src/pages/list_image.dart';
 
 void main() => runApp(HikingAlbum());
 
@@ -15,13 +17,25 @@ class PageContext {
 
 final pageContexts = [
   PageContext(
-      name: 'Focus Image',
+      name: 'List Image',
       route: ListImage.routeName,
       builder: (context) => ListImage()),
   PageContext(
       name: 'Page List',
       route: PageListPage.routeName,
       builder: (context) => PageListPage()),
+  PageContext(
+      name: 'Home',
+      route: HomePage.routeName,
+      builder: (context) => HomePage()),
+  PageContext(
+      name: 'Edit',
+      route: EditPage.routeName,
+      builder: (context) => EditPage()),
+  PageContext(
+      name: 'Mounts Set',
+      route: MountSetPage.routeName,
+      builder: (context) => MountSetPage()),
 ];
 
 final tempRoutes =
@@ -39,7 +53,7 @@ class HikingAlbum extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       routes: allRoutes,
-      home: HomePage(),
+      home: HomePage(title: 'にしおか'),
     );
   }
 }
