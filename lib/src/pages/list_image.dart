@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ListImage extends StatelessWidget {
-  static String routeName = '/focus_image';
+  static String routeName = '/pages/list_image';
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Focus Image')),
+      appBar: AppBar(title: Text('List Image')),
       body: Grid(),
     );
   }
