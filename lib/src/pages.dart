@@ -12,7 +12,7 @@ class PageListPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ListTile(title: Text('Misc', style: headerStyle)),
+          ListTile(title: Text('Pages', style: headerStyle)),
           ...pageContexts.map((d) => PageTile(d)),
         ],
       ),
