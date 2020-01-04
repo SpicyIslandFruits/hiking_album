@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'edit_page.dart';
 import 'mounts_set_page.dart';
 
+var list = {
+  '1' : 'jkjkjk'
+};
 
 class HomePage extends StatefulWidget {
   static String routeName = '/pages/home_page';
@@ -40,7 +43,7 @@ class _HomePageState extends State<HomePage> {
 
             Column(
               children: <Widget>[
-                routePage("gallery list", EditPage()),
+                routePage(list['1'], EditPage()),
                 routePage("insert image", MountSetPage()),
               ],
             )
