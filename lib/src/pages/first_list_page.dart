@@ -32,7 +32,7 @@ class _MyHomePageState extends State<EditPage> {
           ListTile(title: Text('岩木山')),
           ListTile(title: Text('八甲田山')),
           ListTile(title: Text('八幡平')),
-          ListTile(title: Text('岩手山')),ListTile(title: Text('AAA')),
+          ListTile(title: Text('岩手山')),
           ListTile(title: Text('早池峰山')),
           ListTile(title: Text('鳥海山')),
           ListTile(title: Text('月山')),
@@ -134,3 +134,4 @@ class _MyHomePageState extends State<EditPage> {
     );
   }
 }
+

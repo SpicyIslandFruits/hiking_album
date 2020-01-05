@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MountSetPage extends StatelessWidget{
-  static String routeName = '/pages/mounts_set_page';
+class MemoPage extends StatelessWidget{
+  static String routeName = '/pages/memo_page';
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text('100名山リスト'),
+        title: Text('メモ'),
       ),
 
     );

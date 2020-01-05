@@ -1,8 +1,11 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:hiking_album/src/pages/edit_page.dart';
 import 'package:hiking_album/src/pages/home_page.dart';
 import 'package:hiking_album/src/pages.dart';
 import 'package:hiking_album/src/pages/mounts_set_page.dart';
+import 'package:hiking_album/src/pages/memo_page.dart';
 import 'src/pages/list_image.dart';
 
 void main() => runApp(HikingAlbum());
@@ -36,6 +39,10 @@ final pageContexts = [
       name: 'Mounts Set',
       route: MountSetPage.routeName,
       builder: (context) => MountSetPage()),
+  PageContext(
+      name: 'Memo',
+      route: MemoPage.routeName,
+      builder: (context) => MemoPage()),
 ];
 
 final tempRoutes =
