@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:hiking_album/src/pages/edit_page.dart';
 import 'package:hiking_album/src/pages/home_page.dart';
@@ -60,7 +58,7 @@ class HikingAlbum extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       routes: allRoutes,
-      home: HomePage(title: 'にしおか'),
+      home: HomePage(title: 'ホーム'),
     );
   }
 }

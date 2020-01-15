@@ -5,24 +5,25 @@ class EditPage extends StatefulWidget {
   static String routeName = '/pages/edit_page';
   EditPage({Key key}) : super(key: key);
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _EditPageState createState() => new _EditPageState();
 }
 
-class _MyHomePageState extends State<EditPage> {
+class _EditPageState extends State<EditPage> {
 
-  var listItem = ['one', 'two', 'three'];
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('App Name'),
+        title: new Text('アルバム'),
       ),
-      body: ListView(
-        children: [
-          ListTile(title: Text('AAA')),
-          ListTile(title: Text('BBB')),
-          ListTile(title: Text('CCC')),
-        ],
+      body: ListView.builder(
+        itemCount: 4,
+        itemExtent: size.height/4,
+        itemBuilder: (BuildContext context, int index){
+          return Text(index.toString());
+        },
       ),
     );
   }

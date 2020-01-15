@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'edit_page.dart';
 import 'mounts_set_page.dart';
 
-var list = {
-  '1' : 'jkjkjk'
-};
-
 class HomePage extends StatefulWidget {
   static String routeName = '/pages/home_page';
   HomePage({Key key, this.title}) : super(key: key);
@@ -34,18 +30,39 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/first_page.jpg"),
-                    fit: BoxFit.cover,
-                  )
+                image: DecorationImage(
+                  image: AssetImage("assets/first_page.jpg"),
+                  fit: BoxFit.cover,
+                )
               ),
             ),
 
-            Column(
-              children: <Widget>[
-                routePage(list['1'], EditPage()),
-                routePage("insert image", MountSetPage()),
-              ],
+            Align(
+              alignment: Alignment(0.0, 0.5),
+              child: SizedBox(
+                width: 300,
+                height: 250,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Center(
+                      child: ButtonTheme(
+                        minWidth: 100,
+                        height: 50,
+                        child: routePage('アルバム', EditPage()),
+                      ),
+                    ),
+
+                    Center(
+                      child: ButtonTheme(
+                        minWidth: 100,
+                        height: 50,
+                        child: routePage('リスト', MountSetPage()),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             )
           ],
         )
