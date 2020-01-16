@@ -51,6 +51,8 @@ flutter:
   assets:
     - assets/
     - assets/first_page.jpg
+    - assets/Hyakumeizan.csv
+    - assets/RegionList.csv
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

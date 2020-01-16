@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_album/src/database/database_helper.dart';
+import 'package:hiking_album/src/pages/memo_page.dart';
 
 class ListPage extends StatefulWidget{
   ListPage({Key key, this.dbNum}) : super(key: key);
@@ -11,12 +12,17 @@ class ListPage extends StatefulWidget{
 }
 
 class _ListPageState extends State<ListPage>{
-  var db = DatabaseHelper();
-  List<String> names ;
-  List<String> heights;
-  List<String> regions;
+  static var db = DatabaseHelper();
+
+  List<Widget> _items = <Widget>[];
 
   @override
+  void initState() {
+    super.initState();
+    getItem();
+  }
+
+  /***@override
   void initState() {
     switch (widget.dbNum){
       case 1 :
@@ -26,7 +32,7 @@ class _ListPageState extends State<ListPage>{
         getHyakumeizan();
     }
     super.initState();
-  }
+  }***/
 
   @override
   Widget build(BuildContext context) {
@@ -34,18 +40,53 @@ class _ListPageState extends State<ListPage>{
       appBar: AppBar(
         title: Text('リスト')
       ),
-      body: ListView.builder(
-
+      body: ListView(
+        children: _items
+            
       )
     );
   }
 
-  void getHyakumeizan() async{
-    var list = await db.getHyakumeizanList();
-    for(var item in list){
-      names.add(item[0].toString());
-      heights.add(item[1].toString());
-      regions.add(item[2].toString());
+  void getItem() async{
+    List<Map> result = await db.getHyakumeizanList();
+    List<ListTile> list = <ListTile>[];
+
+    for (var item in result){
+      list.add(
+        ListTile(
+          title: Text(item['name']),
+        )
+      );
     }
+
+    setState(() {
+      _items = list;
+    });
+  }
+
+ /*** void getHyakumeizan() async{
+    list = await db.getHyakumeizanList();
+  }***/
+}
+
+class PageTile extends StatelessWidget {
+  final Map mount;
+
+  PageTile(this.mount);
+
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(mount["name"]),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) {
+              return MemoPage(mountName: mount["name"],);
+            }
+          )
+        );
+      },
+    );
   }
 }
